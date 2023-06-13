@@ -46,10 +46,11 @@ win 11 將java 的環境變量位置另設，需要找尋java 的安裝位置，
 
 1. 先將keytool 加進環境變量(C:\Program Files\Java\jre-{$yourJavaVersion}\bin)
 2. cmd 測試keytool
-3. 尋找金鑰:```keytool -list -v -keystore C:\Users\Ryan-Engineer\.android\debug.keystore -storepass android -keypass android```
-4. ``不需要自己產生金鑰，android在安裝的時候已經將debug.keystore安裝在 該有的地點了 keypass 和 keystore 都是 android``
-5. ``這裡需要注意的是，此金鑰為預設金鑰是專門做debug使用，未來上線安全起見，還會再給一組金鑰。``
-6. 就可得到 憑證指紋，也就是尚未加密過的原始資料，將其copy 並放到 firebase上
+3. 尋找金鑰:```keytool -list -v -keystore C:\Users\{$userName}\.android\debug.keystore -storepass android -keypass android```
+正常來說 ```C:\Users\{$userName}``` 可以被省略成```~/``` 也就是 ```~/.android/debug.keystore``` 不知道為什麼不行。
+1. ``不需要自己產生金鑰，android在安裝的時候已經將debug.keystore安裝在 該有的地點了 keypass 和 keystore 都是 android``
+2. ``這裡需要注意的是，此金鑰為預設金鑰是專門做debug使用，未來上線安全起見，還會再給一組金鑰。``
+3. 就可得到 憑證指紋，也就是尚未加密過的原始資料，將其copy 並放到 firebase上
 ### 此處注意 假設win 11是中文版 可能會有使用者與user，建議SHA key兩個檔案夾都找找 才找得到正確的金鑰儲存位置。
 
 Flutter Google Sign In

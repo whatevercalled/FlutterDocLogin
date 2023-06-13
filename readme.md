@@ -32,13 +32,26 @@ dependencies:
   flutter_signin_button: ^2.0.0
 ```
 
-# Sign in With Google 沒有同意畫面 GSA 無法打印任何東西(#需申請Oauth2同意畫面)
+# Sign in With Google 沒有同意畫面 GSA 無法打印任何東西(#需要設定一個SHA key)
 ```
       GoogleSignInAccount? _currentUser = await _googleSignIn.signIn();
       GoogleSignInAuthentication? gSA = await _currentUser?.authentication;
       print(gSA);
 
 ```
+## SHA generate(#keytool)
+win 11 將java 的環境變量位置另設，需要找尋java 的安裝位置，才能運用java 的keytool。
+
+親身試過 兩個java環境變量不會有衝突(#檔案位置截然不同)
+
+1. 先將keytool 加進環境變量(C:\Program Files\Java\jre-{$yourJavaVersion}\bin)
+2. cmd 測試keytool
+3. 尋找金鑰:```keytool -list -v -keystore C:\Users\Ryan-Engineer\.android\debug.keystore -storepass android -keypass android```
+4. ``不需要自己產生金鑰，android在安裝的時候已經將debug.keystore安裝在 該有的地點了 keypass 和 keystore 都是 android``
+5. ``這裡需要注意的是，此金鑰為預設金鑰是專門做debug使用，未來上線安全起見，還會再給一組金鑰。``
+6. 就可得到 憑證指紋，也就是尚未加密過的原始資料，將其copy 並放到 firebase上
+### 此處注意 假設win 11是中文版 可能會有使用者與user，建議SHA key兩個檔案夾都找找 才找得到正確的金鑰儲存位置。
+
 Flutter Google Sign In
 來源來自:https://blog.lifetaiwan.net/2020/03/flutter-google-sign-in.html
 2020-03-18

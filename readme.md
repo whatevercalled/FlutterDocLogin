@@ -1,3 +1,44 @@
+
+# 必要插件:
+```
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  http: ^1.0.0
+  flutter_secure_storage: ^8.0.0
+  ...
+  firebase_auth: ^4.6.2
+  google_sign_in: ^6.1.4
+
+```
+- [ ] http 用於前後端分離
+- [ ] secure_storage 是用於storage 但更安全
+- [ ] firebase_auth 只借用firebase 驗證，windows 需安裝 全局 firebase
+- [ ] google_sign_in
+
+
+推薦插件:
+```
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  ...
+  flutter_signin_button: ^2.0.0
+```
+
+# Sign in With Google 沒有同意畫面 GSA 無法打印任何東西(#需申請Oauth2同意畫面)
+```
+      GoogleSignInAccount? _currentUser = await _googleSignIn.signIn();
+      GoogleSignInAuthentication? gSA = await _currentUser?.authentication;
+      print(gSA);
+
+```
 Flutter Google Sign In
 來源來自:https://blog.lifetaiwan.net/2020/03/flutter-google-sign-in.html
 2020-03-18
@@ -155,3 +196,5 @@ https://pub.dev/packages/google_sign_in
 參考資料
 
 https://blog.codemagic.io/firebase-authentication-google-sign-in-using-flutter/
+
+

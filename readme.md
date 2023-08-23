@@ -120,3 +120,6 @@ GoogleSignIn _googleSignIn = GoogleSignIn(
 
 # 小細節:如果使用者folder名子含有space必須先escape掉
 只要前面加一個\表示是特殊符號就好
+更好的辦法是使用字串
+如下:
+keytool -list -v -keystore "C://Users/Software Engineer/.android/debug.keystore -storepass android -keypass android"

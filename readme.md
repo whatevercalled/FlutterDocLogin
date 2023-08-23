@@ -117,3 +117,6 @@ GoogleSignIn _googleSignIn = GoogleSignIn(
 
 ![Alt text](image-2.png)
 # 完成以上步驟即可完成客戶端的firebase驗證
+
+# 小細節:如果使用者folder名子含有space必須先escape掉
+只要前面加一個\表示是特殊符號就好
